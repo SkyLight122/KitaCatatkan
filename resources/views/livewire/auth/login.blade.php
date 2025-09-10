@@ -11,7 +11,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
 use Livewire\Volt\Component;
 
-new #[Layout('components.layouts.auth')] class extends Component {
+new #[Layout('components.layouts.mainauth')] class extends Component {
     #[Validate('required|string|email')]
     public string $email = '';
 
@@ -74,7 +74,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
 }; ?>
 
 <div class="flex flex-col gap-6">
-    <x-auth-header :title="__('Welcome Back!')" :description="__('Enter your email and password below to log in')" />
+    <x-auth-header :title="__('Hello, Welcome')" :description="__('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')" />
 
     <!-- Session Status -->
     <x-auth-session-status class="text-center" :status="session('status')" />
@@ -82,6 +82,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
     <form method="POST" wire:submit="login" class="flex flex-col gap-6">
         <!-- Email Address -->
         <flux:input
+            icon="bolt"
             wire:model="email"
             :label="__('Email address')"
             type="email"
@@ -121,7 +122,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
     @if (Route::has('register'))
         <div class="space-x-1 rtl:space-x-reverse text-center text-sm text-zinc-600 dark:text-zinc-400">
             <span>{{ __('Already Have Account?') }}</span>
-            <flux:link :href="route('register')" wire:navigate>{{ __('Sign up') }}</flux:link>
+            <flux:link :href="route('register')" wire:navigate class="text-black">{{ __('Sign up') }}</flux:link>
         </div>
     @endif
 </div>
