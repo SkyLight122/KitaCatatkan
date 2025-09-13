@@ -12,8 +12,8 @@ use Livewire\Attributes\Validate;
 use Livewire\Volt\Component;
 
 new #[Layout('components.layouts.mainauth')] class extends Component {
-    #[Validate('required|string|email')]
-    public string $email = '';
+    #[Validate('required|string')]
+    public string $name = '';
 
     #[Validate('required|string')]
     public string $password = '';
@@ -29,11 +29,11 @@ new #[Layout('components.layouts.mainauth')] class extends Component {
 
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
+        if (! Auth::attempt(['name' => $this->name, 'password' => $this->password], $this->remember)) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => __('auth.failed'),
+                'name' => __('auth.failed'),
             ]);
         }
 
@@ -69,12 +69,12 @@ new #[Layout('components.layouts.mainauth')] class extends Component {
      */
     protected function throttleKey(): string
     {
-        return Str::transliterate(Str::lower($this->email).'|'.request()->ip());
+        return Str::transliterate(Str::lower($this->name).'|'.request()->ip());
     }
 }; ?>
 
 <div class="flex flex-col gap-6">
-    <x-auth-header :title="__('Hello, Welcome')" :description="__('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')" />
+    <x-auth-header :title="__('Welcome Back!')" :description="__('Senang melihatmu kembali. Ayo lanjutkan catatan dan tugasmu hari ini.')" />
 
     <!-- Session Status -->
     <x-auth-session-status class="text-center" :status="session('status')" />
@@ -82,19 +82,20 @@ new #[Layout('components.layouts.mainauth')] class extends Component {
     <form method="POST" wire:submit="login" class="flex flex-col gap-6">
         <!-- Email Address -->
         <flux:input
-            icon="bolt"
-            wire:model="email"
-            :label="__('Email address')"
-            type="email"
+            icon="user"
+            wire:model="name"
+            :label="__('Username')"
+            type="text"
             required
             autofocus
-            autocomplete="email"
+            autocomplete="name"
             placeholder="Insert your Username"
         />
 
         <!-- Password -->
         <div class="relative">
             <flux:input
+                icon="lock-closed"
                 wire:model="password"
                 :label="__('Password')"
                 type="password"
@@ -122,7 +123,7 @@ new #[Layout('components.layouts.mainauth')] class extends Component {
     @if (Route::has('register'))
         <div class="space-x-1 rtl:space-x-reverse text-center text-sm text-zinc-600 dark:text-zinc-400">
             <span>{{ __('Already Have Account?') }}</span>
-            <flux:link :href="route('register')" wire:navigate class="text-black">{{ __('Sign up') }}</flux:link>
+            <flux:link :href="route('register')" wire:navigate>{{ __('Sign up') }}</flux:link>
         </div>
     @endif
 </div>
