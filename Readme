@@ -1,0 +1,65 @@
+## KitaCatatkan
+
+KitaCatatkan merupakan Sebuah Website Reminder Khusus Sekolah yang bertujuan untuk mengingatkan para siswa untuk melihat dan mengingat tugas-tugas maupun sekolah atau rumah, serta list-list ulangan kedepannya
+di website kalian bisa menjadi editor list tugas untuk membuat daftar tugas yang ada tetapi khusus kepada pengurus kelas.
+
+## Instalasi
+
+1.Klon repositori ini
+
+Laragon - Terminal
+git clone https://github.com/SkyLight122/KitaCatatkan.git
+
+2.buka file repositori ini
+
+  Laragon - Terminal
+  CD KitaCatatkan
+
+3.Buka Web dari file repositori
+
+  Laragon - Terminal
+  PHP artisan serve
+
+  Click link website nya
+
+Atau tinggal buka website dengan link : KitaCatatkan.ski.id
+
+## Penggunaan
+
+1.kalian perlu login atau daftar akun di web ini.
+
+2.Navigasi
+  di web ini terdapat fitur berupa:
+
+  A.Beranda
+   1.Make new Grup = di beranda ini kalian bisa membuat grup baru untuk kelas kalian masing-masing, dengan memasukkan nama, deskripsi dan julukan/kelas.
+   2.Join Grup = kalian bergabung ke grup kelas yang sudah dibuat oleh pembuatnya.
+   3.Daftar Tugas = Daftar ini berisi tampilan tugas yang ada, hanya menampilkan apakah tugas sudah selesai atau belum selesai.
+
+  B.Halaman Daftar Tugas
+   1.Kalender Note = kalender ini juga berisi daftar-daftar tugas yang sudah ditentukan oleh editor atau pengurus kelas, jika tekan notenya, akan muncul informasi tugas secara detail.
+   2.Edit atau Tambahkan (khusus editor) = pengurus kelas mengisi tugas seperti mata pelajaran, tipe tugas dan deadlinenya.
+
+Teknologi digunakan:
+- Laravel
+- Tailwind CSS
+- Laravel Flux
+
+## Kontribusi
+
+kita mengadakan kontribusi dari kalian semua yang berminat bekerjasama untuk mengimprovisasi KitaCatatkan agar lebih menarik, berguna dan sederhana untuk para user
+dengan memperbaiki bugs, menghadirkan fitur baru, atau membagi materi baru, kerjasamamu sangat berharga bagi kami.
+
+### Cara berkontribusi
+1.
+
+### Panduan Kontribusi
+-
+
+kami berterimakasih yang sudah membaca atau mengikuti panduan ini, atas perhatian anda, saya ucapkan terimakasih.
+
+## Anggota tim
+- Hendry Sen
+- Shane Marcellino Emmanuel
+- Vincent Nicola
+
