@@ -1,66 +1,78 @@
-## KitaCatatkan
+# KitaCatatkan  
 
-KitaCatatkan merupakan Sebuah Website Reminder Khusus Sekolah yang bertujuan untuk mengingatkan para siswa untuk melihat dan mengingat tugas-tugas maupun sekolah atau rumah, serta list-list ulangan kedepannya
-di website kalian bisa menjadi editor list tugas untuk membuat daftar tugas yang ada tetapi khusus kepada pengurus kelas.
+KitaCatatkan adalah sebuah website reminder khusus sekolah yang bertujuan membantu siswa mengingat tugas-tugas maupun ulangan mendatang.  
+Website ini juga memungkinkan **pengurus kelas** menjadi editor untuk membuat atau mengatur daftar tugas bagi anggota kelompok.  
 
-## Instalasi
+## Instalasi  
 
-1.Klon repositori ini
-
-Laragon - Terminal
+# 1. Clone repositori  
+```bash
 git clone https://github.com/SkyLight122/KitaCatatkan.git
 
-2.buka file repositori ini
+2. Masuk ke folder project
+cd KitaCatatkan
 
-  Laragon - Terminal
-  CD KitaCatatkan
+3. Install dependency backend (Laravel)
+composer install
 
-3.Buka Web dari file repositori
+4. Install dependency frontend (Tailwind, Vite, dll.)
+npm install
 
-  Laragon - Terminal
-  PHP artisan serve
+5. Copy file environment dan buat key Laravel
+cp .env.example .env
+php artisan key:generate
+Catatan: Jangan lupa konfigurasi database di file .env sesuai pengaturan lokal kamu.
 
-  Click link website nya
+6. Jalankan migrasi database (opsional kalau sudah ada schema)
+php artisan migrate
 
-Atau tinggal buka website dengan link : KitaCatatkan.ski.id
+7. Jalankan server Laravel
+php artisan serve
 
-## Penggunaan
+8. Jalankan frontend (Vite) untuk Tailwind CSS
+npm run dev
 
-1.kalian perlu login atau daftar akun di web ini.
+Atau jika sudah ada shortcut di composer.json:
+composer run dev
 
-2.Navigasi
-  di web ini terdapat fitur berupa:
 
-  A.Beranda
-   1.Make new Grup = di beranda ini kalian bisa membuat grup baru untuk kelas kalian masing-masing, dengan memasukkan nama, deskripsi dan julukan/kelas.
-   2.Join Grup = kalian bergabung ke grup kelas yang sudah dibuat oleh pembuatnya.
-   3.Daftar Tugas = Daftar ini berisi tampilan tugas yang ada, hanya menampilkan apakah tugas sudah selesai atau belum selesai.
+# Penggunaan
+1. Login atau daftar akun untuk mulai menggunakan aplikasi.
+2. Navigasi utama:
+    - Beranda
+        - Make New Group. Membuat grup kelas baru dengan nama, deskripsi, dan julukan/kelas.
+        - Join Group. Bergabung ke grup kelas yang sudah dibuat.
+        - Daftar Tugas. Melihat daftar tugas dengan status selesai/belum selesai.
+    - Halaman Daftar Tugas
+        - Kalender Note → Menampilkan daftar tugas di kalender, klik untuk detail.
+        - Edit atau Tambahkan Tugas (khusus editor/pengurus kelas).
 
-  B.Halaman Daftar Tugas
-   1.Kalender Note = kalender ini juga berisi daftar-daftar tugas yang sudah ditentukan oleh editor atau pengurus kelas, jika tekan notenya, akan muncul informasi tugas secara detail.
-   2.Edit atau Tambahkan (khusus editor) = pengurus kelas mengisi tugas seperti mata pelajaran, tipe tugas dan deadlinenya.
-
-Teknologi digunakan:
+# Teknologi yang digunakan:
 - Laravel
 - Tailwind CSS
 - Laravel Flux
+- Vite
 
-## Kontribusi
+# Kontribusi
+Kami membuka kontribusi dari siapa pun yang ingin membantu improvisasi KitaCatatkan agar lebih menarik, berguna, dan sederhana bagi pengguna.
 
-kita mengadakan kontribusi dari kalian semua yang berminat bekerjasama untuk mengimprovisasi KitaCatatkan agar lebih menarik, berguna dan sederhana untuk para user
-dengan memperbaiki bugs, menghadirkan fitur baru, atau membagi materi baru, kerjasamamu sangat berharga bagi kami.
+Kontribusi dapat berupa:
+- Memperbaiki bug
+- Menambahkan fitur baru
+- Membagikan ide atau materi pengembangan
 
-### Cara berkontribusi
-1.
+Cara berkontribusi
+1. Fork repositori ini
+2. Buat branch baru:
+    git checkout -b fitur-baru
+3. Lakukan perubahan dan commit
+4. Push branch ke repo forked
+5. Ajukan pull request
 
-### Panduan Kontribusi
--
+# Link Arsitektur
+https://www.figma.com/design/FGJO8CIzzWOAqPWuMIphBn/Project-Calendar?node-id=0-1&p=f&t=lPtLX7w0krabyBwW-0
 
-## Link Arsitektur = https://www.figma.com/design/FGJO8CIzzWOAqPWuMIphBn/Project-Calendar?node-id=0-1&p=f&t=lPtLX7w0krabyBwW-0
-
-kami berterimakasih yang sudah membaca atau mengikuti panduan ini, atas perhatian anda, saya ucapkan terimakasih.
-
-## Anggota tim
+# Anggota Tim
 - Hendry Sen
 - Shane Marcellino Emmanuel
 - Vincent Nicola
