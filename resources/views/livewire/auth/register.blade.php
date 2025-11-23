@@ -25,14 +25,15 @@ new #[Layout('components.layouts.mainauth')] class extends Component {
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        $domain = substr(strrchr($validated['email'], "@"), 1);
+        $instance = \App\Models\InstanceCollab::where('domain', $domain)->first();
+        $validated['instance_collab_id'] = $instance?->id;
         $validated['password'] = Hash::make($validated['password']);
-
         event(new Registered(($user = User::create($validated))));
-
         Auth::login($user);
-
         $this->redirectIntended(route('dashboard', absolute: false), navigate: true);
     }
+
 }; ?>
 
 <div class="flex flex-col gap-6">

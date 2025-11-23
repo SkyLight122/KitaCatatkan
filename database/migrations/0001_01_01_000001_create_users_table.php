@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('email')->unique();
+            $table->string('path')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->boolean('is_school_email')->default(false);
+            $table->foreignId('instance_collab_id')->nullable()->constrained('instance_collabs');
             $table->string('password');
+            $table->string('nama_tabel_tugas')->default('Tugas');
             $table->rememberToken();
             $table->timestamps();
         });

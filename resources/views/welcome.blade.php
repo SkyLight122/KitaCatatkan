@@ -244,8 +244,8 @@
                         beberapa jam sebelum deadline</p>
                 </div>
                 <div class="flex">
-                    <img src="{{asset('images/gamabar2.png')}}" class="object-fit rounded-[10px] w-[21rem] md:w-[28rem] lg:w-[28rem] h-[25.5rem] mt-[15px]">
-                    <img src="{{asset('images/gambar3.png')}}" class="object-fit rounded-[10px] w-[15rem] md:w-[21rem] lg:w-[21rem] h-[20rem] mt-[15px] ml-[15px]">
+                    <img src="{{asset('images/gamabar2.png')}}" class="object-contain w-full h-full rounded-[10px] w-[21rem] md:w-[28rem] lg:w-[28rem] h-[25.5rem] mt-[15px]">
+                    <img src="{{asset('images/gambar3.png')}}" class="object-contain w-full h-full rounded-[10px] w-[15rem] md:w-[21rem] lg:w-[21rem] h-[20rem] mt-[15px] ml-[15px]">
                 </div>
             </div>
             <div class="ml-[15px]  md:mt-[30px] lg:mt-[0px]">

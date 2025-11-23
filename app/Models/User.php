@@ -22,7 +22,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'is_school_email',
+        'path',
+        'instance_collab_id',
+        'nama_tabel_tugas'
     ];
 
     /**
@@ -59,4 +61,21 @@ class User extends Authenticatable
             ->map(fn ($word) => Str::substr($word, 0, 1))
             ->implode('');
     }
+
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class, 'groupuser', 'user_id', 'group_id')
+            ->withPivot('isAdmin');
+    }
+    public function instance()
+    {
+        return $this->belongsTo(\App\Models\InstanceCollab::class, 'instance_collab_id');
+    }
+    public function groupAssignments()
+    {
+        return $this->belongsToMany(GroupAssignment::class, 'group_assignment_users')
+            ->withPivot(['status_id', 'finished_at'])
+            ->withTimestamps();
+    }
+
 }
